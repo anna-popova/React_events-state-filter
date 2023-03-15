@@ -6,8 +6,14 @@ import Toolbar from './Toolbar';
 // Чтобы компонент Portfolio мог реагировать на выбор пользователем фильтра проектов, например, Business Cards, и передавать отфильтрованные по категории Business Cards проекты в компонент ProjectList, в класс Portfolio необходимо добавить состояние (state).
 
 function Portfolio() {
+	const [selected, setSelected] = useState("All");
+
+	function onSelectFilter(filter) {
+		setSelected(filter);
+	}
+
 	const filters = ["All", "Websites", "Flayers", "Business Cards"];
-	// const selected="All";
+
 	const projects = [
 		{
 		img: "https://raw.githubusercontent.com/netology-code/ra16-homeworks/master/events-state/filter/img/mon.jpg",
@@ -63,10 +69,22 @@ function Portfolio() {
 		}
 	];
 
+	const fileredProjects = projects.filter((item) => {
+		if (selected === "All") {
+			return true;
+		}
+
+		return item.category === selected;
+	});
+
 	return (
 		<>
-			<Toolbar filters={filters} />
-			<ProjectList projects={projects} />
+			<Toolbar 
+			filters={filters}
+			selected={selected}
+			onSelectFilter={onSelectFilter}
+			/>
+			<ProjectList projects={fileredProjects} />
 		</>
 	)
 }

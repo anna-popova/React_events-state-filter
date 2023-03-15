@@ -38,6 +38,11 @@ h3 {
 	border-color: rgb(59, 59, 59);
 }
 
+.toolbar__button.selected {
+	background-color: rgb(91, 88, 88);
+	color: white;
+}
+
 .project-list {
 	display: grid;
 	grid-template-columns: repeat(3, 200px);

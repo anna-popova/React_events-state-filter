@@ -1,5 +1,3 @@
-import Portfolio from "./Portfolio";
-
 // Изображения самих проектов отображаются компонентом без состояния ProjectList, которому от Portfolio мы передаём список проектов — в свойство projects. Отображение проектов — это единственная ответственность компонента ProjectList.
 
 function ProjectList({ projects }) {

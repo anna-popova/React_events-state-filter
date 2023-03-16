@@ -69,13 +69,7 @@ function Portfolio() {
 		}
 	];
 
-	const fileredProjects = projects.filter((item) => {
-		if (selected === "All") {
-			return true;
-		}
-
-		return item.category === selected;
-	});
+	const fileredProjects = selected === "All" ? projects : projects.filter(item => item.category === selected);
 
 	return (
 		<>
